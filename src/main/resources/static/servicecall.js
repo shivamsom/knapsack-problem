@@ -34,7 +34,7 @@ function submitRequest() {
         }
     });
     xhr.open("POST", "https://knapsack-problem-app.herokuapp.com/knapsack?players=" + n);
-    //xhr.open("GET", "dummyresponse.json");
+   // xhr.open("GET", "dummyresponse.json");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(data);
@@ -43,6 +43,7 @@ function submitRequest() {
 function populateOutput(apiResponse) {
     var table = document.getElementById("output-table");
     table.style.visibility = "visible";
+    clearTableData(table);
     var itemList = apiResponse.itemList;
 
     var currencyFormat = new Intl.NumberFormat('en', {
@@ -55,13 +56,22 @@ function populateOutput(apiResponse) {
         var itemCell = newRow.insertCell(0);
         var countCell = newRow.insertCell(1);
 
-        itemCell.appendChild(document.createTextNode(itemList[i].name));
+        itemCell.appendChild(document.createTextNode(itemList[i].name.toUpperCase()));
+        itemCell.style.color="lawngreen";
         countCell.appendChild(document.createTextNode(itemList[i].count));
+        countCell.style.color="lawngreen";
     }
     var finalRow = table.insertRow();
     finalRow.className = "success";
     finalRow.insertCell(0).appendChild(document.createTextNode("MAX PROFIT"));
     finalRow.insertCell(1).appendChild(document.createTextNode(
         currencyFormat.format(apiResponse.maxProfit)));
+}
 
+function clearTableData(table) {
+    var len = table.rows.length;
+    while (len-- > 1){
+        if(table.rows[len].id !== 'thead-output')
+            table.deleteRow(len);
+    }
 }
