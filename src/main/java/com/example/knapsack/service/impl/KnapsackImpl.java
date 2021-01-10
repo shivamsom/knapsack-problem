@@ -34,7 +34,7 @@ public class KnapsackImpl implements KnapsackAlgo {
                 maxProfit = maxProfit + i.getCostPi();
                 w = w - i.getWeightWi();
                 outputList.add(new RequestPojo(i.getName(), i.getQty()));
-            } else {
+            } else if(i.getFractional()) {
                 Double fraction = w / i.getWeightWi();
                 maxProfit = maxProfit + (fraction * i.getCostPi());
                 w = 0;
