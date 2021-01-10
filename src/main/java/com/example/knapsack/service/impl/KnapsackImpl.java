@@ -2,6 +2,7 @@ package com.example.knapsack.service.impl;
 
 import com.example.knapsack.pojo.Item;
 import com.example.knapsack.pojo.RequestPojo;
+import com.example.knapsack.pojo.ResponsePojo;
 import com.example.knapsack.service.KnapsackAlgo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ public class KnapsackImpl implements KnapsackAlgo {
 
 
     @Override
-    public String getMaxProfitUsingGreedy(List<Item> itemsList, Integer playersCount) {
+    public ResponsePojo getMaxProfitUsingGreedy(List<Item> itemsList, Integer playersCount) {
         String methodName = "getMaxProfitUsingGreedy";
         LOGGER.info(LOG_REQ_PATTERN, methodName, itemsList);
         List<RequestPojo> outputList = new ArrayList<>();
@@ -42,14 +43,8 @@ public class KnapsackImpl implements KnapsackAlgo {
                 break;
             }
         }
-        StringBuilder stb = new StringBuilder();
-        stb.append("Take the following items==>\n");
-        for (RequestPojo resp : outputList) {
-            stb.append(resp.getName()).append(" x ").append(resp.getCount()).append("\n");
-        }
-        stb.append("Max Profit ==>"+maxProfit);
-
-        return stb.toString();
+        ResponsePojo response = new ResponsePojo(outputList,maxProfit);
+        return response;
     }
 
 }

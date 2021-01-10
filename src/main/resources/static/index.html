@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="servicecall.js"></script>
+</head>
+<body style="background-color: white">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 style="color: white">Knapsack Problem - Greedy Method</h2>
+            <hr>
+            <form action="">
+                <div class="form-group">
+                    <label class="label label-primary" for="gold">No. of PLAYERS</label>
+                    <input type="number" class="form-control sack-item" id="playersCount" name="playersCount"
+                           value="1">
+                    <hr>
+                    <label class="label label-warning" for="gold">No. of GOLD Stash:</label>
+                    <input type="number" class="form-control sack-item" id="gold" name="gold" value="1">
+                    <hr>
+                    <label class="label label-default" for="ck">No. of CK Stash:</label>
+                    <input type="number" class="form-control sack-item" id="ck" name="ck" value="1">
+                    <hr>
+                    <label class="label label-success" for="wd">No. of WWD Stash:</label>
+                    <input type="number" class="form-control sack-item" id="wd" name="wd" value="1">
+                    <hr>
+                    <label class="label label-info" for="art">No.of ART Stash:</label>
+                    <input type="number" class="form-control sack-item" id="art" name="art" value="1">
+                    <hr>
+                    <label class="label label-danger" for="cash">No.of CASH Stash:</label>
+                    <input type="number" class="form-control sack-item" id="cash" name="cash" value="1">
+                </div>
+                <button type="button" onclick="submitRequest()" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-6">
+            <table id="output-table" class="table table-hover table-bordered" style="visibility: hidden">
+                <thead>
+                <tr class="active">
+                    <th>Item</th>
+                    <th>Count</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

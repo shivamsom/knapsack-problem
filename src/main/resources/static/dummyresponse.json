@@ -1,0 +1,21 @@
+{
+  "itemList": [
+    {
+      "name": "gold",
+      "count": 3
+    },
+    {
+      "name": "wd",
+      "count": 3
+    },
+    {
+      "name": "ck",
+      "count": 2
+    },
+    {
+      "name": "cash",
+      "count": 0.03599999999999909
+    }
+  ],
+  "maxProfit": 1877307.48
+}
